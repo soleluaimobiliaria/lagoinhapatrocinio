@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1"
     />
-    <title>Lagoinha Patrocínio • Contribuir</title>
+    <title>Lagoinha Patrocínio • Visitantes</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -126,6 +126,119 @@
         }
       }
 
+      /* Brand header — external to cards */
+      .brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+        margin-bottom: 28px;
+        text-align: center;
+      }
+
+      .brand-logo {
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow:
+          0 0 0 1px rgba(232, 182, 76, 0.4),
+          0 0 40px rgba(232, 182, 76, 0.22),
+          0 20px 40px -12px rgba(0, 0, 0, 0.6);
+        flex-shrink: 0;
+      }
+
+      .brand-name {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-size: 26px;
+        letter-spacing: 0.01em;
+        line-height: 1.2;
+        color: var(--ink);
+      }
+
+      .brand-name .accent {
+        display: block;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-top: 5px;
+      }
+
+      .accent-2 {
+        display: block;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold) !important;
+        margin-top: 5px;
+        margin-bottom: 8px !important;
+      }
+
+      /* Quick nav shortcuts */
+      .quick-nav {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-bottom: 36px;
+        flex-wrap: wrap;
+      }
+
+      .quick-nav-btn {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 13px 20px;
+        border-radius: 14px;
+        border: 1px solid var(--card-line);
+        background: var(--card-bg);
+        backdrop-filter: blur(14px) saturate(1.1);
+        -webkit-backdrop-filter: blur(14px) saturate(1.1);
+        color: var(--ink);
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 13.5px;
+        letter-spacing: 0.01em;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 12px 30px -14px rgba(0, 0, 0, 0.7);
+        text-decoration: none;
+      }
+
+      .quick-nav-btn svg {
+        width: 17px;
+        height: 17px;
+        flex-shrink: 0;
+        color: var(--gold-bright);
+        transition: transform 0.2s ease;
+      }
+
+      .quick-nav-btn:hover {
+        background: rgba(232, 182, 76, 0.1);
+        border-color: rgba(232, 182, 76, 0.45);
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px -14px rgba(232, 182, 76, 0.25);
+      }
+
+      .quick-nav-btn:hover svg {
+        transform: scale(1.12);
+      }
+
+      .quick-nav-btn:focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 2px;
+      }
+
+      .quick-nav-btn:active {
+        transform: translateY(0);
+      }
+
       .card {
         background: var(--card-bg);
         border: 1px solid var(--card-line);
@@ -139,46 +252,7 @@
           0 1px 0 rgba(255, 255, 255, 0.04) inset;
         position: relative;
         margin-bottom: 40px;
-      }
-
-      /* Brand header */
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        justify-content: center;
-        margin-bottom: 6px;
-      }
-
-      .brand-logo {
-        width: 46px;
-        height: 46px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow:
-          0 0 0 1px rgba(232, 182, 76, 0.35),
-          0 0 22px rgba(232, 182, 76, 0.18);
-        flex-shrink: 0;
-      }
-
-      .brand-name {
-        font-family: "Fraunces", serif;
-        font-weight: 600;
-        font-size: 20px;
-        letter-spacing: 0.01em;
-        line-height: 1.15;
-        color: var(--ink);
-      }
-
-      .brand-name .accent {
-        display: block;
-        font-family: "Inter", sans-serif;
-        font-weight: 600;
-        font-size: 10.5px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-top: 3px;
+        scroll-margin-top: 24px;
       }
 
       .divider {
@@ -586,6 +660,129 @@
         opacity: 0.7;
       }
 
+      /* Visit form */
+      .field {
+        margin-bottom: 18px;
+      }
+
+      .field label {
+        display: block;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        color: var(--ink-dim);
+        margin-bottom: 8px;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 13px;
+        border: 1px solid var(--card-line);
+        background: rgba(0, 0, 0, 0.35);
+        color: var(--ink);
+        font-family: "Inter", sans-serif;
+        font-size: 14.5px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        transition: all 0.18s ease;
+      }
+
+      .field select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a89f8f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        padding-right: 40px;
+        cursor: pointer;
+      }
+
+      .field select option {
+        background: #1a1612;
+        color: var(--ink);
+      }
+
+      .field input::placeholder {
+        color: var(--ink-faint);
+        font-weight: 400;
+      }
+
+      .field input:focus,
+      .field select:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(232, 182, 76, 0.14);
+      }
+
+      .field input.invalid,
+      .field select.invalid {
+        border-color: #e0836b;
+      }
+
+      .field-error {
+        font-size: 12px;
+        color: #e0836b;
+        margin-top: 7px;
+        min-height: 14px;
+        display: none;
+      }
+
+      .field-error.show {
+        display: block;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 16px;
+        border-radius: 14px;
+        border: none;
+        background: linear-gradient(
+          135deg,
+          var(--gold-bright),
+          var(--gold) 45%,
+          var(--ember)
+        );
+        color: #1a1206;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.01em;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow:
+          0 8px 24px -6px rgba(232, 182, 76, 0.45),
+          0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        margin-top: 6px;
+      }
+
+      .submit-btn svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-1px);
+        box-shadow:
+          0 10px 30px -6px rgba(232, 182, 76, 0.6),
+          0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+      }
+
+      .submit-btn:active {
+        transform: translateY(0px);
+      }
+
+      .submit-btn:focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 3px;
+      }
+
       @media (max-width: 380px) {
         .card {
           padding: 28px 20px 24px;
@@ -598,6 +795,20 @@
         .brand-name {
           font-size: 18px;
         }
+
+        .brand-logo {
+          width: 76px;
+          height: 76px;
+        }
+
+        .quick-nav {
+          gap: 9px;
+        }
+
+        .quick-nav-btn {
+          padding: 12px 15px;
+          font-size: 12.5px;
+        }
       }
     </style>
   </head>
@@ -608,21 +819,15 @@
     <div class="bg-grain"></div>
 
     <div class="container">
-      <div class="card">
-        <div class="brand">
-          <img
-            class="brand-logo"
-            src="data:image/jpeg;base64,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"
-            alt="Logo Lagoinha Patrocínio"
-          />
-          <div class="brand-name">
-            Lagoinha
-            <span class="accent">Patrocínio</span>
-          </div>
+      <div class="brand">
+        <img class="brand-logo" src="logo.png" alt="Logo Lagoinha Patrocínio" />
+        <div class="brand-name">
+          Lagoinha
+          <span class="accent">Patrocínio</span>
         </div>
+      </div>
 
-        <div class="divider"></div>
-
+      <div class="card" id="card-visita">
         <div class="title-row">
           <svg
             class="title-icon"
@@ -631,149 +836,98 @@
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 21C12 21 4 15.5 4 9.8C4 6.6 6.4 4.5 9 4.5C10.5 4.5 11.5 5.2 12 6C12.5 5.2 13.5 4.5 15 4.5C17.6 4.5 20 6.6 20 9.8C20 15.5 12 21 12 21Z"
+              d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z"
               stroke="currentColor"
               stroke-width="1.6"
-              stroke-linejoin="round"
             />
             <path
-              d="M12 6V21"
+              d="M4 20C4 16.134 7.58172 13 12 13C16.4183 13 20 16.134 20 20"
               stroke="currentColor"
-              stroke-width="1.3"
+              stroke-width="1.6"
               stroke-linecap="round"
-              opacity="0.5"
             />
           </svg>
-          <div class="title">Contribuir&nbsp;/&nbsp;Doar</div>
+          <div class="title">Primeira visita?</div>
         </div>
 
         <div class="subtitle">
-          Sua contribuição ajuda a manter e expandir a obra de Deus.
+          Que alegria ter você aqui! Cadastre-se e receba nossas boas-vindas. 💛
         </div>
 
-        <div class="info-block">
-          <div class="info-row">
-            <span class="label">Titular:</span>
-            <span class="value" style="font-size: 12px"
-              >IGREJA BATISTA DA LAGOINHA PATROCINIO MG</span
-            >
-          </div>
-        </div>
-
-        <span class="section-label">Valor da doação</span>
-        <div class="hint">Selecione um valor ou digite um valor.</div>
-
-        <div class="values" id="valueButtons">
-          <button type="button" data-v="5">R$5</button>
-          <button type="button" data-v="10">R$10</button>
-          <button type="button" data-v="20">R$20</button>
-          <button type="button" data-v="50">R$50</button>
-          <button type="button" data-v="100">R$100</button>
-          <button type="button" data-v="200">R$200</button>
-        </div>
-
-        <div class="input-wrap">
-          <span class="input-prefix">R$</span>
-          <input
-            type="text"
-            inputmode="decimal"
-            id="valor"
-            placeholder="0,00"
-            maxlength="10"
-            autocomplete="off"
-            aria-label="Valor da doação em reais"
-          />
-          <div class="input-error" id="inputError"></div>
-        </div>
-
-        <div class="qr-section">
-          <div class="qr-box">
-            <div id="qrcode"></div>
-          </div>
-          <div class="qr-caption">
-            Aponte a câmera do seu banco para o QR Code
-          </div>
-        </div>
-
-        <button class="copy-btn" id="copyBtn" data-clipboard-text="">
-          Copiar código PIX &bull;
-          <span class="btn-value" id="btnValue">R$ 5,00</span>
-        </button>
-
-        <div class="success" id="successMsg">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M5 13L9 17L19 7"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+        <form id="visitaForm" novalidate>
+          <div class="field">
+            <label for="nomeCompleto">Nome completo</label>
+            <input
+              type="text"
+              id="nomeCompleto"
+              name="nomeCompleto"
+              placeholder="Digite seu nome completo"
+              autocomplete="name"
             />
-          </svg>
-          Código copiado com sucesso
-        </div>
+            <div class="field-error" id="err-nomeCompleto">
+              Informe seu nome completo.
+            </div>
+          </div>
 
-        <div class="pix-alt">
-          <p>
-            Prefere digitar o valor no banco? Copie a chave PIX abaixo e informe
-            o valor no app.
-          </p>
-          <button
-            class="pix-key-btn"
-            id="pixKeyBtn"
-            data-clipboard-text="37862321000105"
-            type="button"
-          >
-            <span class="pix-key-left">
-              <span class="pix-key-label">Chave PIX (CNPJ)</span>
-              <span class="pix-key-value">37.862.321/0001-05</span>
-            </span>
-            <svg
-              class="pix-key-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="8"
-                y="8"
-                width="12"
-                height="12"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="1.6"
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seuemail@exemplo.com"
+              autocomplete="email"
+            />
+            <div class="field-error" id="err-email">
+              Informe um email válido.
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="telefone">Telefone/Wpp</label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              placeholder="(34) 99999-9999"
+              inputmode="tel"
+              autocomplete="tel"
+            />
+            <div class="field-error" id="err-telefone">
+              Informe um telefone válido com DDD.
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="comoConheceu">Como conheceu a igreja?</label>
+            <select id="comoConheceu" name="comoConheceu">
+              <option value="" disabled selected hidden>
+                Selecione uma opção
+              </option>
+              <option value="Indicação de amigo">Indicação de amigo</option>
+              <option value="Redes sociais">Redes sociais</option>
+              <option value="Passando pela região">Passando pela região</option>
+              <option value="Evento especial">Evento especial</option>
+              <option value="Culto online">Culto online</option>
+              <option value="Outro">Outro</option>
+            </select>
+            <div class="field-error" id="err-comoConheceu">
+              Selecione uma opção.
+            </div>
+          </div>
+
+          <button class="submit-btn" type="submit">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.75 7.85 19L7.55 18.82L4.43 19.64L5.27 16.6L5.07 16.29C4.24 15 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.71 20.28 11.92C20.27 16.46 16.57 20.15 12.04 20.15Z"
               />
               <path
-                d="M16 8V6C16 4.89543 15.1046 4 14 4H6C4.89543 4 4 4.89543 4 6V14C4 15.1046 4.89543 16 6 16H8"
-                stroke="currentColor"
-                stroke-width="1.6"
+                d="M9.24 6.98C9.06 6.58 8.87 6.57 8.7 6.57C8.56 6.56 8.4 6.56 8.24 6.56C8.08 6.56 7.82 6.62 7.6 6.86C7.38 7.1 6.76 7.68 6.76 8.86C6.76 10.04 7.62 11.18 7.74 11.34C7.86 11.5 9.4 13.99 11.83 14.97C13.85 15.78 14.26 15.62 14.7 15.58C15.14 15.54 16.12 15 16.32 14.43C16.52 13.86 16.52 13.37 16.46 13.27C16.4 13.17 16.24 13.11 16 12.99C15.76 12.87 14.58 12.29 14.36 12.21C14.14 12.13 13.98 12.09 13.82 12.33C13.66 12.57 13.2 13.11 13.06 13.27C12.92 13.43 12.78 13.45 12.54 13.33C12.3 13.21 11.53 12.96 10.61 12.14C9.9 11.51 9.42 10.73 9.28 10.49C9.14 10.25 9.26 10.12 9.38 10C9.49 9.89 9.62 9.71 9.74 9.57C9.86 9.43 9.9 9.33 9.98 9.17C10.06 9.01 10.02 8.87 9.96 8.75C9.9 8.63 9.44 7.44 9.24 6.98Z"
               />
             </svg>
+            Cadastrar
           </button>
-          <div class="success" id="successMsgKey" style="margin-top: 10px">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5 13L9 17L19 7"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            Chave PIX copiada
-          </div>
-        </div>
-
-        <div class="footer">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path
-              d="M12 2L4 6V11C4 16 7.5 20.5 12 22C16.5 20.5 20 16 20 11V6L12 2Z"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-          </svg>
-          PIX seguro &bull; Banco Central
-        </div>
+        </form>
       </div>
     </div>
 
@@ -1016,6 +1170,147 @@
 
       // init
       setValor(5);
+
+      // Scroll suave para os atalhos de navegação
+      document.querySelectorAll(".quick-nav-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute("data-scroll");
+          const target = document.getElementById(targetId);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // === Formulário Primeira Visita ===
+      const WHATSAPP_NUMERO = "5534998976861";
+
+      const visitaForm = document.getElementById("visitaForm");
+      const campoNome = document.getElementById("nomeCompleto");
+      const campoEmail = document.getElementById("email");
+      const campoTelefone = document.getElementById("telefone");
+      const campoComoConheceu = document.getElementById("comoConheceu");
+
+      function limparErro(campo, erroId) {
+        campo.classList.remove("invalid");
+        document.getElementById(erroId).classList.remove("show");
+      }
+
+      function marcarErro(campo, erroId) {
+        campo.classList.add("invalid");
+        document.getElementById(erroId).classList.add("show");
+      }
+
+      function validarNome() {
+        const valor = campoNome.value.trim();
+        if (valor.length < 3 || !/\s/.test(valor)) {
+          marcarErro(campoNome, "err-nomeCompleto");
+          return false;
+        }
+        limparErro(campoNome, "err-nomeCompleto");
+        return true;
+      }
+
+      function validarEmail() {
+        const valor = campoEmail.value.trim();
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!regexEmail.test(valor)) {
+          marcarErro(campoEmail, "err-email");
+          return false;
+        }
+        limparErro(campoEmail, "err-email");
+        return true;
+      }
+
+      function validarTelefone() {
+        const digitos = campoTelefone.value.replace(/\D/g, "");
+        if (digitos.length < 10 || digitos.length > 11) {
+          marcarErro(campoTelefone, "err-telefone");
+          return false;
+        }
+        limparErro(campoTelefone, "err-telefone");
+        return true;
+      }
+
+      function validarComoConheceu() {
+        if (!campoComoConheceu.value) {
+          marcarErro(campoComoConheceu, "err-comoConheceu");
+          return false;
+        }
+        limparErro(campoComoConheceu, "err-comoConheceu");
+        return true;
+      }
+
+      // Formata telefone enquanto digita: (34) 99999-9999
+      campoTelefone.addEventListener("input", (e) => {
+        let digitos = e.target.value.replace(/\D/g, "").substring(0, 11);
+        let formatado = digitos;
+
+        if (digitos.length > 0) {
+          formatado = "(" + digitos.substring(0, 2);
+        }
+        if (digitos.length >= 3) {
+          formatado += ") " + digitos.substring(2, digitos.length > 10 ? 7 : 6);
+        }
+        if (digitos.length > 10) {
+          formatado += "-" + digitos.substring(7, 11);
+        } else if (digitos.length > 6) {
+          formatado += "-" + digitos.substring(6, 10);
+        }
+
+        e.target.value = formatado;
+      });
+
+      campoNome.addEventListener("blur", validarNome);
+      campoEmail.addEventListener("blur", validarEmail);
+      campoTelefone.addEventListener("blur", validarTelefone);
+      campoComoConheceu.addEventListener("change", validarComoConheceu);
+
+      visitaForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const nomeOk = validarNome();
+        const emailOk = validarEmail();
+        const telefoneOk = validarTelefone();
+        const comoConheceuOk = validarComoConheceu();
+
+        if (!nomeOk || !emailOk || !telefoneOk || !comoConheceuOk) {
+          const primeiroInvalido = visitaForm.querySelector(".invalid");
+          if (primeiroInvalido) {
+            primeiroInvalido.focus();
+            primeiroInvalido.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }
+          return;
+        }
+
+        const nome = campoNome.value.trim();
+        const email = campoEmail.value.trim();
+        const telefone = campoTelefone.value.trim();
+        const comoConheceu = campoComoConheceu.value;
+
+        const mensagem =
+          "Olá! Gostaria de me cadastrar como visitante. 💛%0A%0A" +
+          "*Nome completo:* " +
+          encodeURIComponent(nome) +
+          "%0A" +
+          "*Email:* " +
+          encodeURIComponent(email) +
+          "%0A" +
+          "*Telefone/Wpp:* " +
+          encodeURIComponent(telefone) +
+          "%0A" +
+          "*Como conheceu a igreja:* " +
+          encodeURIComponent(comoConheceu);
+
+        const linkWhatsapp =
+          "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + mensagem;
+
+        window.open(linkWhatsapp, "_blank");
+      });
     </script>
   </body>
 </html>
