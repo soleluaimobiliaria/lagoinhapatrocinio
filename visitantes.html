@@ -975,6 +975,12 @@
 
       function validarEmail() {
         const valor = campoEmail.value.trim();
+
+        if (valor === "") {
+          limparErro(campoEmail, "err-email");
+          return true;
+        }
+
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!regexEmail.test(valor)) {
           marcarErro(campoEmail, "err-email");
