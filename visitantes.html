@@ -870,20 +870,6 @@
           </div>
 
           <div class="field">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="seuemail@exemplo.com"
-              autocomplete="email"
-            />
-            <div class="field-error" id="err-email">
-              Informe um email válido.
-            </div>
-          </div>
-
-          <div class="field">
             <label for="telefone">Telefone/Wpp</label>
             <input
               type="tel"
@@ -949,7 +935,6 @@
 
       const visitaForm = document.getElementById("visitaForm");
       const campoNome = document.getElementById("nomeCompleto");
-      const campoEmail = document.getElementById("email");
       const campoTelefone = document.getElementById("telefone");
       const campoComoConheceu = document.getElementById("comoConheceu");
 
@@ -970,24 +955,6 @@
           return false;
         }
         limparErro(campoNome, "err-nomeCompleto");
-        return true;
-      }
-
-      function validarEmail() {
-        const valor = campoEmail.value.trim();
-
-        if (valor === "") {
-          limparErro(campoEmail, "err-email");
-          return true;
-          
-        }
-
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!regexEmail.test(valor)) {
-          marcarErro(campoEmail, "err-email");
-          return false;
-        }
-        limparErro(campoEmail, "err-email");
         return true;
       }
 
@@ -1031,7 +998,6 @@
       });
 
       campoNome.addEventListener("blur", validarNome);
-      campoEmail.addEventListener("blur", validarEmail);
       campoTelefone.addEventListener("blur", validarTelefone);
       campoComoConheceu.addEventListener("change", validarComoConheceu);
 
@@ -1039,11 +1005,10 @@
         e.preventDefault();
 
         const nomeOk = validarNome();
-        const emailOk = validarEmail();
         const telefoneOk = validarTelefone();
         const comoConheceuOk = validarComoConheceu();
 
-        if (!nomeOk || !emailOk || !telefoneOk || !comoConheceuOk) {
+        if (!nomeOk || !telefoneOk || !comoConheceuOk) {
           const primeiroInvalido = visitaForm.querySelector(".invalid");
           if (primeiroInvalido) {
             primeiroInvalido.focus();
@@ -1056,7 +1021,6 @@
         }
 
         const nome = campoNome.value.trim();
-        const email = campoEmail.value.trim();
         const telefone = campoTelefone.value.trim();
         const comoConheceu = campoComoConheceu.value;
 
@@ -1065,9 +1029,6 @@
           "*Nome completo:* " +
           encodeURIComponent(nome) +
           "%0A" +
-          "*Email:* " +
-          encodeURIComponent(email) +
-          "%0A" +
           "*Telefone/Wpp:* " +
           encodeURIComponent(telefone) +
           "%0A" +
@@ -1075,7 +1036,10 @@
           encodeURIComponent(comoConheceu);
 
         const linkWhatsapp =
-          "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + mensagem;
+          // "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + mensagem;
+        "https://api.whatsapp.com/send?phone=" +
+          WHATSAPP_NUMERO +
+          "&text=" + mensagem;
 
         window.open(linkWhatsapp, "_blank");
       });
