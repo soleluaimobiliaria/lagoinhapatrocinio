@@ -2734,24 +2734,39 @@
     .radio-fab {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 11px 20px;
-      background: linear-gradient(135deg, #c9a84c, #a07830);
-      border: none;
+      gap: 9px;
+      padding: 12px 20px;
+      color: #fff;
+      background: linear-gradient(135deg, #f3c64e, #d98b16);
+      border: 1px solid rgba(255, 255, 255, 0.55);
       border-radius: 28px;
       cursor: pointer;
-      box-shadow: 0 4px 18px rgba(201, 168, 76, 0.4);
+      box-shadow:
+        0 5px 20px rgba(217, 139, 22, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
       transition:
         transform 0.25s,
         box-shadow 0.25s,
-        opacity 0.25s;
+        background 0.25s;
       white-space: nowrap;
     }
 
     .radio-fab:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(201, 168, 76, 0.6);
-      opacity: 0.92;
+      background: linear-gradient(135deg, #ffdb70, #ed9f22);
+      box-shadow: 0 8px 28px rgba(217, 139, 22, 0.7);
+    }
+
+    .radio-fab:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 3px;
+    }
+
+    .radio-fab-icon {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
+      flex-shrink: 0;
     }
 
     /* Podcast FAB */
@@ -2795,12 +2810,13 @@
     }
 
     .radio-fab-dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: #fff;
       flex-shrink: 0;
       animation: blinkDot 1.4s ease-in-out infinite;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
     }
 
     .radio-fab-label {
@@ -2810,6 +2826,7 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: #fff;
+      text-shadow: 0 1px 3px rgba(75, 43, 0, 0.35);
     }
 
     /* Live pill button */
@@ -3343,16 +3360,6 @@
         right: 20px;
       }
 
-      .radio-overlay {
-        padding: 0 20px 240px;
-        justify-content: center;
-      }
-
-      .radio-player {
-        width: 100%;
-        max-width: 340px;
-      }
-
       .live-modal-title {
         font-size: 0.9rem;
       }
@@ -3641,17 +3648,6 @@
       /* Prayer modal */
       .prayer-modal {
         max-height: 95vh;
-      }
-
-      /* Radio player overlay */
-      .radio-overlay {
-        padding: 0 12px 220px !important;
-        justify-content: center !important;
-      }
-
-      .radio-player {
-        width: 100%;
-        max-width: 100%;
       }
 
       /* Live modal */
@@ -5463,65 +5459,14 @@
 
     <!-- Rádio Online -->
     <div class="fab-item">
-      <button class="radio-fab" id="openRadio" aria-label="Rádio Online">
-        <span class="radio-fab-dot"></span>
+      <button class="radio-fab" id="openRadio" type="button" aria-label="Ouvir Rádio Online">
+        <svg class="radio-fab-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9Zm0 16a7 7 0 1 1 7-7 7 7 0 0 1-7 7Zm0-12a5 5 0 1 0 5 5 5 5 0 0 0-5-5Zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3Z" />
+          <circle cx="12" cy="12" r="1.5" />
+        </svg>
         <span class="radio-fab-label">Rádio Online</span>
+        <span class="radio-fab-dot"></span>
       </button>
-    </div>
-  </div>
-
-  <!-- Audio element for radio -->
-  <audio id="radioAudio" crossorigin="anonymous">
-    <source src="https://server7.brlogic.com:8192/live" type="audio/mpeg" />
-  </audio>
-
-  <!-- Radio Player Modal -->
-  <div class="radio-overlay" id="radioOverlay">
-    <div class="radio-player">
-      <div class="radio-player-header">
-        <div class="radio-logo">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 3v9.28a4 4 0 1 0 2 3.44V3h-2zm0 15a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
-          </svg>
-        </div>
-        <div class="radio-info">
-          <div class="radio-name">Gospel Mix SP</div>
-          <div class="radio-status">
-            <span class="radio-status-dot"></span>
-            Ao vivo
-          </div>
-        </div>
-        <button class="radio-close-btn" id="radioClose">&#x2715;</button>
-      </div>
-      <div class="radio-body">
-        <div class="radio-now-playing">
-          <div class="radio-now-label">Tocando agora</div>
-          <div class="radio-song-title" id="radioSongTitle">
-            Louvores Gospel
-          </div>
-          <div class="radio-song-artist" id="radioSongArtist">
-            Gospel Mix SP — Web Rádio
-          </div>
-        </div>
-
-        <div class="radio-wave" id="radioWave">
-          <span></span><span></span><span></span><span></span> <span></span><span></span><span></span>
-        </div>
-
-        <div class="radio-controls">
-          <button class="radio-play-btn" id="radioPlayBtn" aria-label="Play/Pause">
-            <svg id="radioPlayIcon" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </button>
-          <div class="radio-vol">
-            <svg viewBox="0 0 24 24">
-              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
-            </svg>
-            <input type="range" id="radioVol" min="0" max="100" value="80" />
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -5742,51 +5687,16 @@
     }
 
     // ══════════════════════════════════════════
-    // RADIO PLAYER
+    // ONLINE RADIO
     // ══════════════════════════════════════════
-    var radioAudio = document.getElementById("radioAudio");
-    var radioPlayBtn = document.getElementById("radioPlayBtn");
-    var radioPlayIcon = document.getElementById("radioPlayIcon");
-    var radioWave = document.getElementById("radioWave");
-    var radioVol = document.getElementById("radioVol");
-    var radioOverlay = document.getElementById("radioOverlay");
     var openRadio = document.getElementById("openRadio");
-    var radioClose = document.getElementById("radioClose");
-    var radioPlaying = false;
-
-    radioAudio.volume = 0.8;
 
     openRadio.addEventListener("click", function () {
-      radioOverlay.classList.add("open");
-    });
-
-    radioClose.addEventListener("click", function () {
-      radioOverlay.classList.remove("open");
-    });
-
-    radioOverlay.addEventListener("click", function (e) {
-      if (e.target === radioOverlay) radioOverlay.classList.remove("open");
-    });
-
-    radioPlayBtn.addEventListener("click", function () {
-      if (radioPlaying) {
-        radioAudio.pause();
-        radioWave.classList.add("paused");
-        radioPlayIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
-        radioPlaying = false;
-      } else {
-        radioAudio.src = "https://stream.zeno.fm/yn65m9qpnfhvv";
-        radioAudio.load();
-        radioAudio.play().catch(function () { });
-        radioWave.classList.remove("paused");
-        radioPlayIcon.innerHTML =
-          '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
-        radioPlaying = true;
-      }
-    });
-
-    radioVol.addEventListener("input", function () {
-      radioAudio.volume = radioVol.value / 100;
+      window.open(
+        "https://sua-radio.base44.app/radio/radio-lagoinha-patrocinio",
+        "_blank",
+        "popup=yes,width=420,height=780,resizable=yes,scrollbars=yes,noopener,noreferrer",
+      );
     });
 
     // ══════════════════════════════════════════
